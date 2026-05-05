@@ -121,7 +121,7 @@ export default function Landing() {
 
       <div className="marquee-wrap">
         <div className="marquee-track">
-          {['React','Next.js','TypeScript','Node.js','PostgreSQL','AWS','Tailwind CSS','Figma to Code'].concat(['React','Next.js','TypeScript','Node.js','PostgreSQL','AWS','Tailwind CSS','Figma to Code']).map((m, i) => (
+          {Array.from({length: 4}, () => ['React','Next.js','TypeScript','Node.js','PostgreSQL','AWS','Tailwind CSS','Figma to Code']).flat().map((m, i) => (
             <div key={i} className="marquee-item">{m}</div>
           ))}
         </div>
