@@ -1,11 +1,14 @@
-const TECHS = ['React', 'Next.js', 'TypeScript', 'Node.js', 'PostgreSQL', 'AWS', 'Tailwind CSS', 'Figma to Code'];
+import { tools } from '../lib/tools';
 
 export default function TechMarquee() {
   return (
     <div className="marquee-wrap">
       <div className="marquee-track">
-        {Array.from({ length: 4 }, () => TECHS).flat().map((m, i) => (
-          <div key={i} className="marquee-item">{m}</div>
+        {[...tools, ...tools].map((tool, i) => (
+          <div key={i} className="marquee-item">
+            <tool.icon className="w-8 h-8" />
+            {tool.name}
+          </div>
         ))}
       </div>
     </div>

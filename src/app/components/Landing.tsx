@@ -8,6 +8,7 @@ import HowItWorks from './HowItWorks';
 import ClientLogos from './ClientLogos';
 import LeadSection from './LeadSection';
 import Footer from './Footer';
+import WhatsAppButton from './WhatsAppButton';
 
 export default function Landing() {
   const cursorRef = useRef<HTMLDivElement | null>(null);
@@ -81,6 +82,7 @@ export default function Landing() {
       <ClientLogos />
       <LeadSection />
       <Footer />
+      <WhatsAppButton />
     </>
   );
 }
