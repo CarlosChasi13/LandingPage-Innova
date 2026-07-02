@@ -1,32 +1,15 @@
-export function ClientLogos() {
-  const companies = [
-    'INNOVATE CORP',
-    'NEXUS TECH',
-    'QUANTUM SOLUTIONS',
-    'APEX SYSTEMS',
-    'VELOCITY GROUP',
-    'ZENITH DIGITAL'
-  ];
+const CLIENTS = ['Innovate Corp', 'Nexus Tech', 'Quantum Solutions', 'Apex Systems', 'Velocity Group', 'Zenith Digital'];
 
+export default function ClientLogos() {
   return (
-    <section className="py-16 px-6 lg:px-8 bg-white border-t border-[#0F0F0F]/10">
-      <div className="max-w-7xl mx-auto">
-        <p className="text-center text-sm text-[#0F0F0F]/40 mb-8 uppercase tracking-wide">
-          Companies that trust us
-        </p>
-        
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
-          {companies.map((company, index) => (
-            <div key={index} className="text-center">
-              <span 
-                className="text-[#0F0F0F]/30 font-bold text-sm"
-                style={{ fontFamily: 'Space Grotesk, sans-serif' }}
-              >
-                {company}
-              </span>
-            </div>
-          ))}
-        </div>
+    <section id="clients">
+      <p className="clients-label reveal">Empresas que confían en nosotros</p>
+      <div className="clients-logos">
+        {CLIENTS.map((c, i) => (
+          <div key={i} className={`client-item reveal${i % 3 ? ' reveal-delay-1' : ''}`}>
+            <span className="client-name">{c}</span>
+          </div>
+        ))}
       </div>
     </section>
   );

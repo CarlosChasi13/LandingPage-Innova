@@ -1,86 +1,33 @@
-import { Code, Workflow, Cloud, Brain, Smartphone, Shield } from 'lucide-react';
+const SERVICES = [
+  { num: '01', icon: '🎨', title: 'Diseño UI/UX', desc: 'Interfaces pensadas para convertir visitantes en clientes. Figma, prototipado y sistemas de diseño escalables.' },
+  { num: '02', icon: '⚡', title: 'Desarrollo Web', desc: 'Aplicaciones con React, Next.js y Node.js. Código limpio, testeable y listo para producción desde el día uno.' },
+  { num: '03', icon: '🛒', title: 'E-Commerce', desc: 'Tiendas online que venden. Shopify, WooCommerce o solución personalizada con pagos y logística integrada.' },
+  { num: '04', icon: '🔐', title: 'Plataformas SaaS', desc: 'Arquitectura backend robusta, autenticación, multi-tenancy y dashboards de administración a medida.' },
+  { num: '05', icon: '🚀', title: 'Optimización & SEO', desc: 'Core Web Vitals en verde, tiempo de carga bajo 1 segundo y posicionamiento orgánico desde la arquitectura.' },
+  { num: '06', icon: '🤖', title: 'Integración IA', desc: 'Chatbots, automatizaciones y flujos inteligentes con LLMs integrados directamente en tu producto web.' },
+];
 
-export function Services() {
-  const services = [
-    {
-      icon: Code,
-      title: 'Custom development',
-      description: 'Bespoke software solutions tailored to your unique business requirements and workflows.'
-    },
-    {
-      icon: Workflow,
-      title: 'Integrations & APIs',
-      description: 'Seamlessly connect your systems and third-party services for unified operations.'
-    },
-    {
-      icon: Cloud,
-      title: 'Cloud & infrastructure',
-      description: 'Scalable cloud architecture designed for performance, reliability, and growth.'
-    },
-    {
-      icon: Brain,
-      title: 'AI automation',
-      description: 'Intelligent automation powered by machine learning to optimize your processes.'
-    },
-    {
-      icon: Smartphone,
-      title: 'Mobile apps',
-      description: 'Native and cross-platform mobile solutions that engage your users anywhere.'
-    },
-    {
-      icon: Shield,
-      title: 'Security & compliance',
-      description: 'Enterprise-grade security measures ensuring data protection and regulatory compliance.'
-    }
-  ];
-
+export default function Services() {
   return (
-    <section id="services" className="py-20 px-6 lg:px-8 bg-white">
-      <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <span className="text-[#3563E9] font-semibold mb-3 block">OUR SERVICES</span>
-          <h2 
-            className="text-4xl lg:text-5xl font-bold mb-4"
-            style={{ fontFamily: 'Space Grotesk, sans-serif' }}
-          >
-            Everything you need to scale
-          </h2>
-          <p className="text-lg text-[#0F0F0F]/60 max-w-2xl mx-auto">
-            Comprehensive technology solutions designed to transform your business operations and drive measurable results.
-          </p>
+    <section id="services">
+      <div className="section-header reveal">
+        <div>
+          <div className="section-tag">Servicios</div>
+          <h2>Todo lo que<br />tu negocio <em>necesita</em></h2>
         </div>
+        <p className="section-desc">Desde la estrategia hasta el lanzamiento, cubrimos cada etapa del desarrollo digital con precisión técnica.</p>
+      </div>
 
-        {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, index) => {
-            const Icon = service.icon;
-            return (
-              <div 
-                key={index}
-                className="p-8 rounded-2xl border border-[#0F0F0F]/10 hover:border-[#3563E9]/30 hover:shadow-sm transition-all"
-              >
-                {/* Icon */}
-                <div className="w-12 h-12 rounded-xl bg-[#3563E9]/10 flex items-center justify-center mb-5">
-                  <Icon className="w-6 h-6 text-[#3563E9]" strokeWidth={1.5} />
-                </div>
-                
-                {/* Title */}
-                <h3 
-                  className="text-xl font-bold mb-3"
-                  style={{ fontFamily: 'Space Grotesk, sans-serif' }}
-                >
-                  {service.title}
-                </h3>
-                
-                {/* Description */}
-                <p className="text-[#0F0F0F]/60 leading-relaxed">
-                  {service.description}
-                </p>
-              </div>
-            );
-          })}
-        </div>
+      <div className="services-grid">
+        {SERVICES.map((s, i) => (
+          <div key={s.num} className={`service-card reveal${i % 3 ? ` reveal-delay-${i % 3}` : ''}`}>
+            <div className="service-num">{s.num}</div>
+            <div className="service-icon">{s.icon}</div>
+            <div className="service-title">{s.title}</div>
+            <p className="service-desc">{s.desc}</p>
+            <a href="#" className="service-link">Conocer más</a>
+          </div>
+        ))}
       </div>
     </section>
   );
